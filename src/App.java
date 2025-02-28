@@ -57,19 +57,18 @@ import java.util.*;
  */
 
 //SAMPLE USAGE: A+
-/** The magic number is 2. Shh! Don't tell anyone
- *  Enter a guess:
- *  10
- *  Way off!
- *  Enter a guess:
- *  3
- *  Very close!
- *  Enter a guess:
- *  2
- *  It took you 3 guesses.
+/**
+ * The magic number is 2. Shh! Don't tell anyone
+ * Enter a guess:
+ * 10
+ * Way off!
+ * Enter a guess:
+ * 3
+ * Very close!
+ * Enter a guess:
+ * 2
+ * It took you 3 guesses.
  */
-
-
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -78,11 +77,35 @@ public class App {
         System.out.println("The magic number is "+ magicNumber + ". Shh! Don't tell anyone");
         Scanner reader = new Scanner(System.in);
     }
+    }
 
-
-    //Do not modify!!!
+    // Do not modify!!!
     public static int getMeARandomNumber(){
         Random random = new Random();
         return random.nextInt(10) + 1;
+        int count = 0;
+        while(true){
+        int magicNumber = getMeARandomNumber();
+        System.out.println("Enter a Guess:");
+        int number = Integer.valueOf(scanner.nextLine());
+        if (number <= 1 || number >= 10) {
+            System.out.println("Enter a valid number");
+        } else {
+            count = count ++;
+        }
+        if (number == magicNumber) {
+            System.out.println("It took you " + count + "guesses.");
+            break;
+        } else {
+            System.out.println("Try again!");
+        } 
+        int variable = Math.abs(number - magicNumber);
+        if (variable <= 2){
+            System.out.println("Very close!");
+        } else if (variable > 5){
+            System.out.println("Way off!");
+        }
+
     }
+
 }
